@@ -68,6 +68,10 @@ int main (int argc, char *argv[])
   lteHelper->SetSchedulerType ("ns3::RrFfMacScheduler");
   //lteHelper->SetHandoverAlgorithmType ("ns3::NoOpHandoverAlgorithm"); // disable automatic handover
   lteHelper->SetHandoverAlgorithmType ("ns3::A2A4RsrqHandoverAlgorithm");
+lteHelper->SetHandoverAlgorithmAttribute ("ServingCellThreshold",
+                                          UintegerValue (40));
+lteHelper->SetHandoverAlgorithmAttribute ("NeighbourCellOffset",
+                                          UintegerValue (1));
   // Uncomment to enable logging
 //  lteHelper->EnableLogComponents ();
  
