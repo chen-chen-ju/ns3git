@@ -1,0 +1,17 @@
+# note: you need to be root
+
+# create two paired veth devices
+ip link add name veth0 type veth peer name veth1
+ip link show
+
+# enable promiscuous mode
+ip link set veth0 promisc on
+ip link set veth1 promisc on
+
+# bring interfaces up
+ip link set veth0 up
+ip link set veth1 up
+
+# start wireshark and capture on veth0
+wireshark &
+

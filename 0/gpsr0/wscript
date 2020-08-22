@@ -1,0 +1,39 @@
+# -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
+
+# def options(opt):
+#     pass
+
+# def configure(conf):
+#     conf.check_nonfatal(header_name='stdint.h', define_name='HAVE_STDINT_H')
+
+def build(bld):
+    module = bld.create_ns3_module('gpsr0', ['location-service', 'internet', 'wifi', 'applications', 'mesh', 'point-to-point', 'virtual-net-device'])
+    module.source = [
+        'model/gpsr0-ptable.cc',
+        'model/gpsr0-rqueue.cc',
+        'model/gpsr0-packet.cc',
+        'model/gpsr0.cc',
+        'helper/gpsr0-helper.cc',
+        ]
+
+    gpsr0_test = bld.create_ns3_module_test_library('gpsr0')
+    gpsr0_test.source = [
+        #'test/gpsr0-test-suite.cc',
+        ]
+
+
+    headers = bld(features=['ns3header'])
+    headers.module = 'gpsr0'
+    headers.source = [
+        'model/gpsr0-ptable.h',
+        'model/gpsr0-rqueue.h',
+        'model/gpsr0-packet.h',
+        'model/gpsr0.h',
+        'helper/gpsr0-helper.h',
+        ]
+
+    if (bld.env['ENABLE_EXAMPLES']):
+        bld.recurse('examples')
+
+    bld.ns3_python_bindings()
+
