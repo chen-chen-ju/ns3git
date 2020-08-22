@@ -69,7 +69,7 @@ public:
 
   Ptr<LocationService> GetLS ();
   void SetLS (Ptr<LocationService> locationService);
-  void Setmalicious (bool f);
+
   /// Broadcast ID
   uint32_t m_requestId;
   /// Request sequence number
@@ -80,7 +80,7 @@ public:
   /// Number of RREQs used for RREQ rate control
   uint16_t m_rreqCount;
   Time HelloInterval;
-  bool malicious;
+  //bool malicious;
   void SetDownTarget (IpL4Protocol::DownTargetCallback callback);
   IpL4Protocol::DownTargetCallback GetDownTarget (void) const;
   //void SetMalicious(bool f);

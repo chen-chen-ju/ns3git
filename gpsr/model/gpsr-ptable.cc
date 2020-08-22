@@ -190,7 +190,6 @@ PositionTable::BestNeighbor (Vector position, Vector nodePos)
  * \param nodePos the position of the destination node
  * \return Ipv4Address of the next hop, Ipv4Address::GetZero () if no nighbour was found in greedy mode
  */
-/*
 Ipv4Address
 PositionTable::BestAngle (Vector previousHop, Vector nodePos)
 {
@@ -256,7 +255,6 @@ PositionTable::GetAngle (Vector centrePos, Vector refPos, Vector node){
   return real(Angle);
 
 }
-*/
 
 
 
